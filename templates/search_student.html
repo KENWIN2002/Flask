@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Student</title>
+</head>
+<body>
+    <h1>Search Student</h1>
+    <form action="{{ url_for('search_student') }}" method="POST">
+        <label for="name">Enter Student Name: </label>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <button type="submit">Search</button>
+    </form>
+
+    {% if name %}
+        <h2>Student Found:</h2>
+        <p>Name: {{ name }}</p>
+        <p>Age: {{ age }}</p>
+        <img src="{{ url_for('static', filename='uploads/' + photo) }}" alt="{{ name }}'s photo" width="200">
+    {% endif %}
+
+    <br><br>
+    <a href="{{ url_for('index') }}">Add Student</a>
+</body>
+</html>
